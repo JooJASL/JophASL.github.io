@@ -1,6 +1,6 @@
 {
-    "name": "formula_calculator",
-    "short_name": "formula_calculator",
+    "name": "tasks",
+    "short_name": "tasks",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
