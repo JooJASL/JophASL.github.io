@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the mostrarModalEditarCliente method from the ClientesScreenState class, for the Dart programming language.">
+  <title>mostrarModalEditarCliente method - ClientesScreenState class - clientes_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">sales_force</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/screens_checkin_clientes_screen-library.html">clientes_screen</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html">ClientesScreenState</a></li>
+    <li class="self-crumb">mostrarModalEditarCliente method</li>
+  </ol>
+  <div class="self-name">mostrarModalEditarCliente</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">mostrarModalEditarCliente</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">mostrarModalEditarCliente</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="mostrarModalEditarCliente-param-cliente"><span class="type-annotation">dynamic</span> <span class="parameter-name">cliente</span>, </span></li>
+<li><span class="parameter" id="mostrarModalEditarCliente-param-index"><span class="type-annotation">dynamic</span> <span class="parameter-name">index</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; mostrarModalEditarCliente(cliente, index) async {
+  setState(() {
+    _editaTituloCliente.text = cliente[&#39;Titulo&#39;];
+    _editaCpfCnpjCliente.text = cliente[&#39;Cpf_Cnpj&#39;];
+    _editaFoneCliente.text = cliente[&#39;Fone1&#39;];
+    _editaContatoCliente.text = cliente[&#39;Contato&#39;];
+    naturezaCliente = cliente[&#39;Natureza&#39;];
+    selectedRadio = cliente[&#39;Natureza&#39;] == &quot;PJ&quot; ? 1 : 2;
+    selectedFone = cliente[&#39;Fone1&#39;].length &lt;= 14 ? 1 : 2;
+    maskFone = cliente[&#39;Fone1&#39;].length &lt;= 14
+        ? MaskTextInputFormatter(mask: &#39;(##) ####-####&#39;)
+        : MaskTextInputFormatter(mask: &#39;(##) #####-####&#39;);
+  });
+
+  showModalBottomSheet(
+    constraints: BoxConstraints(
+        maxHeight: 450 &lt; MediaQuery.of(context).size.height - 80
+            ? 450
+            : MediaQuery.of(context).size.height - 80),
+    isScrollControlled: true,
+    enableDrag: false,
+    context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+    ),
+    builder: (BuildContext context) {
+      return BottomSheet(
+        onClosing: () {},
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (BuildContext context, setState) =&gt; Scaffold(
+              body: SafeArea(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(&quot;Editar cliente&quot;,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold)),
+                            Visibility(
+                              visible: permissoesUsuario != null &amp;&amp;
+                                      permissoesUsuario[&#39;Deletar_Cliente&#39;] ==
+                                          &quot;Sim&quot;
+                                  ? true
+                                  : false,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) =&gt;
+                                        AlertDialog(
+                                      title: const Text(&quot;Excluir cliente&quot;),
+                                      content: const Text(
+                                          &quot;Tem certeza que deseja excluir?&quot;),
+                                      actions: &lt;Widget&gt;[
+                                        TextButton(
+                                          onPressed: () =&gt; Navigator.pop(
+                                              context, &#39;Cancel&#39;),
+                                          child: const Text(&#39;Cancelar&#39;),
+                                        ),
+                                        TextButton(
+                                          onPressed: () =&gt; Navigator.pop(
+                                              context, excluirCliente(index)),
+                                          child: const Text(&#39;Confirmar&#39;),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  children: [
+                                    Icon(Icons.delete,
+                                        size: 31, color: Colors.red.shade300),
+                                    Text(&quot;Excluir&quot;,
+                                        style: TextStyle(
+                                            color: Colors.red.shade900))
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        TextField(
+                          readOnly: permissoesUsuario != null &amp;&amp;
+                                  permissoesUsuario[&#39;Alterar_Cliente&#39;] ==
+                                      &quot;Sim&quot;
+                              ? false
+                              : true,
+                          controller: _editaTituloCliente,
+                          style: const TextStyle(height: 0.5),
+                          decoration: const InputDecoration(
+                            labelText: &quot;Cliente&quot;,
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(1, 19, 168, 1),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Radio(
+                                activeColor:
+                                    const Color.fromRGBO(1, 19, 168, 1),
+                                value: 1,
+                                groupValue: selectedRadio,
+                                onChanged: (dynamic val) {
+                                  setState(() {
+                                    selectedRadio = val;
+                                    _editaCpfCnpjCliente.text = &quot;&quot;;
+                                    maskCNPJ = MaskTextInputFormatter(
+                                        mask: &#39;##.###.###&#47;####-##&#39;);
+                                    naturezaCliente = &#39;PJ&#39;;
+                                  });
+                                },
+                              ),
+                            ),
+                            const Expanded(
+                              child: Text(
+                                &#39;CNPJ&#39;,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Color.fromRGBO(1, 19, 168, 1)),
+                              ),
+                            ),
+                            Expanded(
+                              child: Radio(
+                                  activeColor:
+                                      const Color.fromRGBO(1, 19, 168, 1),
+                                  value: 2,
+                                  groupValue: selectedRadio,
+                                  onChanged: (dynamic val) {
+                                    setState(() {
+                                      selectedRadio = val;
+                                      _editaCpfCnpjCliente.text = &quot;&quot;;
+                                      maskCNPJ = MaskTextInputFormatter(
+                                          mask: &#39;###.###.###-##&#39;);
+                                      naturezaCliente = &#39;PF&#39;;
+                                    });
+                                  }),
+                            ),
+                            const Expanded(
+                              child: Text(
+                                &#39;CPF&#39;,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Color.fromRGBO(1, 19, 168, 1)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        TextField(
+                          readOnly: permissoesUsuario != null &amp;&amp;
+                                  permissoesUsuario[&#39;Alterar_Cliente&#39;] ==
+                                      &quot;Sim&quot;
+                              ? false
+                              : true,
+                          controller: _editaCpfCnpjCliente,
+                          style: const TextStyle(height: 0.5),
+                          decoration: const InputDecoration(
+                            labelText: &quot;CPF&#47;CNPJ&quot;,
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(1, 19, 168, 1),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(1, 19, 168, 1),
+                                  width: 1.0),
+                            ),
+                          ),
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [maskCNPJ],
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Radio(
+                                  activeColor:
+                                      const Color.fromRGBO(1, 19, 168, 1),
+                                  value: 1,
+                                  groupValue: selectedFone,
+                                  onChanged: (dynamic val) {
+                                    setState(() {
+                                      selectedFone = val;
+                                      maskFone = MaskTextInputFormatter(
+                                          mask: &#39;(##) ####-####&#39;);
+                                    });
+                                  }),
+                            ),
+                            const Expanded(
+                              child: Text(&#39;Telefone&#39;,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromRGBO(1, 19, 168, 1))),
+                            ),
+                            Expanded(
+                              child: Radio(
+                                  activeColor:
+                                      const Color.fromRGBO(1, 19, 168, 1),
+                                  value: 2,
+                                  groupValue: selectedFone,
+                                  onChanged: (dynamic val) {
+                                    setState(() {
+                                      selectedFone = val;
+                                      maskFone = MaskTextInputFormatter(
+                                          mask: &#39;(##) #####-####&#39;);
+                                    });
+                                  }),
+                            ),
+                            const Expanded(
+                              child: Text(&#39;Celular&#39;,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromRGBO(1, 19, 168, 1))),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                  readOnly: permissoesUsuario != null &amp;&amp;
+                                          permissoesUsuario[
+                                                  &#39;Alterar_Cliente&#39;] ==
+                                              &quot;Sim&quot;
+                                      ? false
+                                      : true,
+                                  controller: _editaFoneCliente,
+                                  inputFormatters: [maskFone],
+                                  keyboardType: TextInputType.number,
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    labelText: &quot;Celular&quot;,
+                                    labelStyle: const TextStyle(
+                                      color: Color.fromRGBO(1, 19, 168, 1),
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(4.0),
+                                    ),
+                                    isDense: true,
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(1, 19, 168, 1),
+                                          width: 1.0),
+                                    ),
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(1, 19, 168, 1),
+                                          width: 1.0),
+                                    ),
+                                  )),
+                            ),
+                            const Padding(padding: EdgeInsets.all(5)),
+                            Expanded(
+                              child: TextField(
+                                  readOnly: permissoesUsuario != null &amp;&amp;
+                                          permissoesUsuario[
+                                                  &#39;Alterar_Cliente&#39;] ==
+                                              &quot;Sim&quot;
+                                      ? false
+                                      : true,
+                                  controller: _editaContatoCliente,
+                                  textInputAction: TextInputAction.done,
+                                  decoration: InputDecoration(
+                                    labelText: &quot;Contato&quot;,
+                                    labelStyle: const TextStyle(
+                                      color: Color.fromRGBO(1, 19, 168, 1),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(4.0)),
+                                    isDense: true,
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        Visibility(
+                          visible: permissoesUsuario != null &amp;&amp;
+                              permissoesUsuario[&#39;Alterar_Cliente&#39;] == &quot;Sim&quot;,
+                          child: SizedBox(
+                            height: 36,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () =&gt; editarCliente(index),
+                              style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      const Color.fromRGBO(2, 8, 41, 1)),
+                              child: enviandoFormulario
+                                  ? const CircularProgressIndicator(
+                                      color: Colors.white)
+                                  : const Text(&#39;Salvar&#39;,
+                                      style: TextStyle(fontSize: 20)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    },
+  ).whenComplete(() {
+    return;
+  });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">sales_force</a></li>
+  <li><a href="../../screens_checkin_clientes_screen/screens_checkin_clientes_screen-library.html">clientes_screen</a></li>
+  <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html">ClientesScreenState</a></li>
+  <li class="self-crumb">mostrarModalEditarCliente method</li>
+</ol>
+
+
+    <h5>ClientesScreenState class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html#constructors">Constructors</a></li>
+          <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/ClientesScreenState.html">ClientesScreenState</a></li>
+
+
+    <li class="section-title">
+      <a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/context.html">context</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/enviandoFormulario.html">enviandoFormulario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/initFuture.html">initFuture</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/maskCNPJ.html">maskCNPJ</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/maskFone.html">maskFone</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/mounted.html">mounted</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/naturezaCliente.html">naturezaCliente</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/permissoesUsuario.html">permissoesUsuario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/selectedFone.html">selectedFone</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/selectedRadio.html">selectedRadio</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/usuario.html">usuario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/widget.html">widget</a></li>
+
+    <li class="section-title"><a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/build.html">build</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/buscarClientes.html">buscarClientes</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didChangeDependencies.html">didChangeDependencies</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/dispose.html">dispose</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/editarCliente.html">editarCliente</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/excluirCliente.html">excluirCliente</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/filtrarClientes.html">filtrarClientes</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/initState.html">initState</a></li>
+    <li><a href="../../screens_checkin_clientes_screen/ClientesScreenState/mostrarModalEditarCliente.html">mostrarModalEditarCliente</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/reassemble.html">reassemble</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/setState.html">setState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../screens_checkin_clientes_screen/ClientesScreenState-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    sales_force
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the iniciarEstado method from the VendaFormScreenState class, for the Dart programming language.">
+  <title>iniciarEstado method - VendaFormScreenState class - venda_form_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">sales_force</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/screens_formularios_venda_form_screen-library.html">venda_form_screen</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html">VendaFormScreenState</a></li>
+    <li class="self-crumb">iniciarEstado method</li>
+  </ol>
+  <div class="self-name">iniciarEstado</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">iniciarEstado</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">iniciarEstado</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; iniciarEstado() async {
+  await getEmpresas();
+  await listaCfop(&quot;&quot;);
+  await buscaMetodosPagamentos();
+  if (widget.venda != null) {
+    setState(() {
+      _clienteSelecionado = widget.venda[&#39;Id_Cliente&#39;];
+      _clienteController.text = widget.venda[&#39;Cliente&#39;];
+      tituloCliente = widget.venda[&#39;Cliente&#39;];
+      _cfopSelecionado = widget.venda[&#39;Id_Cfop&#39;];
+      _obsController.text = widget.venda[&#39;Obs&#39;];
+      _cfopController.text = listaCfops![listaCfops!.indexWhere(
+          (element) =&gt; element[&#39;Id&#39;] == widget.venda[&#39;Id_Cfop&#39;])][&#39;Cfop&#39;];
+      metodoPagamento = widget.venda[&#39;Id_Tipo_Pagamento&#39;];
+      totalCompra = double.parse(widget.venda[&#39;Valor_Original&#39;]);
+      cepCliente = widget.venda[&#39;Cep_Cliente&#39;];
+      empresaSelecionada = widget.venda[&#39;Id_Unidade&#39;];
+      cepEmpresa = empresas![empresas!
+              .indexWhere((empresa) =&gt; empresa[&#39;Id&#39;] == empresaSelecionada)]
+          [&quot;Cep&quot;];
+      status = widget.venda[&#39;Status&#39;];
+    });
+    await buscaProdutosVenda(widget.venda[&quot;Id&quot;]);
+    await buscaClienteCompra();
+    carregando = false;
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">sales_force</a></li>
+  <li><a href="../../screens_formularios_venda_form_screen/screens_formularios_venda_form_screen-library.html">venda_form_screen</a></li>
+  <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html">VendaFormScreenState</a></li>
+  <li class="self-crumb">iniciarEstado method</li>
+</ol>
+
+
+    <h5>VendaFormScreenState class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html#constructors">Constructors</a></li>
+          <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/VendaFormScreenState.html">VendaFormScreenState</a></li>
+
+
+    <li class="section-title">
+      <a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/brl.html">brl</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/carregando.html">carregando</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/cepCliente.html">cepCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/cepEmpresa.html">cepEmpresa</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/cfopCliente.html">cfopCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/cliente.html">cliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/codigoMetodoPagamento.html">codigoMetodoPagamento</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/codigosMetodoPagamento.html">codigosMetodoPagamento</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/context.html">context</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/documento.html">documento</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/empresas.html">empresas</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/empresaSelecionada.html">empresaSelecionada</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/enviandoFormulario.html">enviandoFormulario</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusCfop.html">focusCfop</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusCliente.html">focusCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusEmpresa.html">focusEmpresa</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusPrecoProduto.html">focusPrecoProduto</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusProduto.html">focusProduto</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusQtdProduto.html">focusQtdProduto</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/focusQtdProdutoLoja.html">focusQtdProdutoLoja</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/idUnidadeCliente.html">idUnidadeCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/indexCliente.html">indexCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/listaCfops.html">listaCfops</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/metodoPagamento.html">metodoPagamento</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/mounted.html">mounted</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/produtos.html">produtos</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/produtosVenda.html">produtosVenda</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/status.html">status</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/tituloCliente.html">tituloCliente</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/totalCompra.html">totalCompra</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/usuario.html">usuario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/widget.html">widget</a></li>
+
+    <li class="section-title"><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/adicionarProdutoVenda.html">adicionarProdutoVenda</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/atualizarVenda.html">atualizarVenda</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/botaoDeSalvar.html">botaoDeSalvar</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/build.html">build</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/buscaClienteCompra.html">buscaClienteCompra</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/buscaMetodosPagamentos.html">buscaMetodosPagamentos</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/buscaProdutosVenda.html">buscaProdutosVenda</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/cadastrarVenda.html">cadastrarVenda</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/compararEstados.html">compararEstados</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/conteudo.html">conteudo</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didChangeDependencies.html">didChangeDependencies</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/dispose.html">dispose</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/getClientes.html">getClientes</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/getEmpresas.html">getEmpresas</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/getProdutos.html">getProdutos</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/iniciarEstado.html">iniciarEstado</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/initState.html">initState</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/listaCfop.html">listaCfop</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/mudaStatus.html">mudaStatus</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/reassemble.html">reassemble</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/salvarDocumento.html">salvarDocumento</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/setState.html">setState</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/showModal.html">showModal</a></li>
+    <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/tabelaDeItemsAdicionados.html">tabelaDeItemsAdicionados</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+        <li class="section-title"><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState-class.html#constants">Constants</a></li>
+          <li><a href="../../screens_formularios_venda_form_screen/VendaFormScreenState/borderDefault-constant.html">borderDefault</a></li>
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    sales_force
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
