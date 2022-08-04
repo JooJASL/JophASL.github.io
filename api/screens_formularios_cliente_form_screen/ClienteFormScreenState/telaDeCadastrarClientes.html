@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the telaDeCadastrarClientes method from the ClienteFormScreenState class, for the Dart programming language.">
+  <title>telaDeCadastrarClientes method - ClienteFormScreenState class - cliente_form_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">sales_force</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/screens_formularios_cliente_form_screen-library.html">cliente_form_screen</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html">ClienteFormScreenState</a></li>
+    <li class="self-crumb">telaDeCadastrarClientes method</li>
+  </ol>
+  <div class="self-name">telaDeCadastrarClientes</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">telaDeCadastrarClientes</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Form-class.html">Form</a></span>
+<span class="name ">telaDeCadastrarClientes</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Form telaDeCadastrarClientes() {
+  return Form(
+    key: _formKey,
+    child: SingleChildScrollView(
+      padding: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+        child: Center(
+          child: Card(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: &lt;Widget&gt;[
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Input nome &#47; nome fantasia do cliente
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Nome&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;Nome Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    autofocus: true,
+                    autocorrect: false,
+                    textInputAction: TextInputAction.next,
+                    controller: _controlaTitulo,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47; campo de obs. da razão social
+                  const SizedBox(
+                    width: 350,
+                    child: Text(
+                      &#39;Obrigatório para PJ.&#39;,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  &#47;&#47;input Razão Social
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Razão Social&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    autocorrect: false,
+                    textInputAction: TextInputAction.next,
+                    controller: _controlaRazaoSocial,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Select se vai aplicar a máscara de cnpj ou cpf.
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Radio(
+                            activeColor: const Color.fromRGBO(1, 19, 168, 1),
+                            value: 1,
+                            groupValue: selectedRadio,
+                            onChanged: (dynamic val) {
+                              setSelectedRadio(val);
+                            }),
+                      ),
+                      const Expanded(
+                        child: Text(
+                          &#39;CNPJ&#39;,
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromRGBO(1, 19, 168, 1)),
+                        ),
+                      ),
+                      Expanded(
+                        child: Radio(
+                            activeColor: const Color.fromRGBO(1, 19, 168, 1),
+                            value: 2,
+                            groupValue: selectedRadio,
+                            onChanged: (dynamic val) {
+                              setSelectedRadio(val);
+                            }),
+                      ),
+                      const Expanded(
+                        child: Text(
+                          &#39;CPF&#39;,
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromRGBO(1, 19, 168, 1)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  &#47;&#47;Obs. do campo CNPJ&#47;CPF
+                  const SizedBox(
+                    width: 350,
+                    child: Text(
+                      &#39;Digite sem pontuação ou traços.&#39;,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;CNPJ &#47; CPF&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    controller: _controlaCpfCnpj,
+                    inputFormatters: [maskCNPJ],
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;CNPJ ou CPF Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Obs. do campo Insc. Estadual
+                  const SizedBox(
+                    width: 350,
+                    child: Text(
+                      &#39;Se não tiver, deixar em branco.&#39;,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  &#47;&#47;Input Insc. Estadual
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Insc. Estadual&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    keyboardType: TextInputType.number,
+                    textInputAction: TextInputAction.next,
+                    controller: _controlaInscEstadual,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Obs. do campo Telefone
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: const [
+                                SizedBox(
+                                  child: Text(
+                                    &#39;DDD + Número.&#39;,
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            &#47;&#47;Input Telefone
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: &#39;Telefone&#39;,
+                                      labelStyle: const TextStyle(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                      ),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.0)),
+                                      isDense: true,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                    ),
+                                    inputFormatters: [maskNumero],
+                                    keyboardType: TextInputType.number,
+                                    textInputAction: TextInputAction.next,
+                                    validator: (value) {
+                                      if ((value == null ||
+                                              value.trim().isEmpty ||
+                                              value.length &lt; 14) &amp;&amp;
+                                          _controlaTelefone2.text.isEmpty) {
+                                        return &quot;Número Inválido!&quot;;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    controller: _controlaTelefone1,
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(5.0),
+                                ),
+                                &#47;&#47;Input Contato Telefone
+                                Expanded(
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: &#39;Contato&#39;,
+                                      labelStyle: const TextStyle(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                      ),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.0)),
+                                      isDense: true,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                    ),
+                                    validator: (value) {
+                                      if ((value == null ||
+                                              value.trim().isEmpty) &amp;&amp;
+                                          _controlaContato2.text.isEmpty) {
+                                        return &quot;Contato Inválido!&quot;;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    textInputAction: TextInputAction.next,
+                                    controller: _controlaContato1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Obs. do campo Celular
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: const [
+                                SizedBox(
+                                  child: Text(
+                                    &#39;DDD + Número.&#39;,
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: &#39;Celular&#39;,
+                                      labelStyle: const TextStyle(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                      ),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.0)),
+                                      isDense: true,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                    ),
+                                    inputFormatters: [maskNumeroCel],
+                                    keyboardType: TextInputType.number,
+                                    textInputAction: TextInputAction.next,
+                                    controller: _controlaTelefone2,
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(5.0),
+                                ),
+                                &#47;&#47;contato do celular
+                                Expanded(
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: &#39;Contato&#39;,
+                                      labelStyle: const TextStyle(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                      ),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.0)),
+                                      isDense: true,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                    ),
+                                    textInputAction: TextInputAction.next,
+                                    controller: _controlaContato2,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 350,
+                              child: Text(
+                                &#39;Preencher apenas um dos contatos.&#39;,
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  &#47;&#47;Input Email
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;E-mail&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
+                    controller: _controlaEmail,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Obs. do botão de Gps
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: const [
+                                Expanded(
+                                  child: SizedBox(
+                                    child: Text(
+                                      &#39;Anex. End.&#39;,
+                                      textAlign: TextAlign.end,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            &#47;&#47;Input CEP
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: &#39;Cep&#39;,
+                                      labelStyle: const TextStyle(
+                                        color: Color.fromRGBO(1, 19, 168, 1),
+                                      ),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.0)),
+                                      isDense: true,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color:
+                                                Color.fromRGBO(1, 19, 168, 1),
+                                            width: 1.0),
+                                      ),
+                                    ),
+                                    inputFormatters: [maskCEP],
+                                    keyboardType: TextInputType.number,
+                                    textInputAction: TextInputAction.next,
+                                    validator: (value) {
+                                      if (value == null ||
+                                          value.trim().isEmpty ||
+                                          value.length &lt; 9) {
+                                        return &quot;CEP Incorreto!&quot;;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    controller: _controlaCep,
+                                    onChanged: (value) =&gt; {
+                                      if (value.length == 9)
+                                        {pesquisaEndereco(value)}
+                                    },
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(5.0),
+                                ),
+                                &#47;&#47;Botão de GPS
+                                Expanded(
+                                  child: SizedBox(
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          primary: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                              side: const BorderSide(
+                                                  color: Color.fromRGBO(
+                                                      1, 19, 168, 1)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      4.0))),
+                                      onPressed: () =&gt; getPosicaoAtual(),
+                                      child: obtendoLocalizacao
+                                          ? const SizedBox(
+                                              height: 40,
+                                              width: 40,
+                                              child:
+                                                  CircularProgressIndicator(
+                                                      color: Color.fromRGBO(
+                                                          1, 19, 168, 1)))
+                                          : const Icon(
+                                              Icons.location_on,
+                                              color: Color.fromRGBO(
+                                                  1, 19, 168, 1),
+                                              size: 50,
+                                            ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Endereço&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;Endereço Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    controller: _controlaEndereco,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                  ),
+                  &#47;&#47;Obs. Campo numero
+                  const SizedBox(
+                    width: 350,
+                    child: Text(
+                      &#39;Se não existir, colocar &quot;S&#47;N&quot;.&#39;,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  &#47;&#47;Input Numero endereço
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Numero&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;Número Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    controller: _controlaNumero,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Bairro&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;Bairro Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    controller: _controlaBairro,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  TextFormField(
+                      decoration: InputDecoration(
+                        labelText: &#39;Cidade&#39;,
+                        labelStyle: const TextStyle(
+                          color: Color.fromRGBO(1, 19, 168, 1),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(4.0)),
+                        isDense: true,
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromRGBO(1, 19, 168, 1),
+                              width: 1.0),
+                        ),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromRGBO(1, 19, 168, 1),
+                              width: 1.0),
+                        ),
+                      ),
+                      textInputAction: TextInputAction.next,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return &quot;Cidade Inválida!&quot;;
+                        } else {
+                          return null;
+                        }
+                      },
+                      controller: _controlaCidade),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: &#39;Estado&#39;,
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(1, 19, 168, 1),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
+                      isDense: true,
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(1, 19, 168, 1), width: 1.0),
+                      ),
+                    ),
+                    textInputAction: TextInputAction.done,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return &quot;Estado Inválido!&quot;;
+                      } else {
+                        return null;
+                      }
+                    },
+                    controller: _controlaEstado,
+                    maxLength: 2,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: BotaoQueCarrega(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              cadastrarCliente();
+                            }
+                          },
+                          carregando: enviandoFormulario,
+                          child: const Text(&quot;Cadastrar&quot;),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">sales_force</a></li>
+  <li><a href="../../screens_formularios_cliente_form_screen/screens_formularios_cliente_form_screen-library.html">cliente_form_screen</a></li>
+  <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html">ClienteFormScreenState</a></li>
+  <li class="self-crumb">telaDeCadastrarClientes method</li>
+</ol>
+
+
+    <h5>ClienteFormScreenState class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html#constructors">Constructors</a></li>
+          <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/ClienteFormScreenState.html">ClienteFormScreenState</a></li>
+
+
+    <li class="section-title">
+      <a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/context.html">context</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/enviandoFormulario.html">enviandoFormulario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/mounted.html">mounted</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/obtendoLocalizacao.html">obtendoLocalizacao</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/selectedRadio.html">selectedRadio</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/usuario.html">usuario</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/widget.html">widget</a></li>
+
+    <li class="section-title"><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/build.html">build</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/cadastrarCliente.html">cadastrarCliente</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didChangeDependencies.html">didChangeDependencies</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/dispose.html">dispose</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/getPosicaoAtual.html">getPosicaoAtual</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/initState.html">initState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/pesquisaEndereco.html">pesquisaEndereco</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/reassemble.html">reassemble</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/resetarForm.html">resetarForm</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/setSelectedRadio.html">setSelectedRadio</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/setState.html">setState</a></li>
+    <li><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState/telaDeCadastrarClientes.html">telaDeCadastrarClientes</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../screens_formularios_cliente_form_screen/ClienteFormScreenState-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    sales_force
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
